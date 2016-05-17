@@ -4,6 +4,10 @@ import dolfin
 import numpy
 import scipy
 
+class Nucleus(dolfin.SubDomain):
+    def inside(self,x,on_boundary):
+        return dolfin.between(x[0]**2+x[1]**2+x[2]**2,(0,3.**2))
+
 
 class hes1(pyurdme.URDMEModel):
     def __init__(self,model_name="hes1", P_start=200,m_start=10,k1_e=1.e9, k2_e=0.1, alpha_m_e=3.0, alpha_m_gamma_e=3./30., alpha_p_e=1.0, mu_m_e=0.015,mu_p_e=0.043):
