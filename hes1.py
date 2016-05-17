@@ -19,7 +19,7 @@ class hes1(pyurdme.URDMEModel):
         self.add_species([Pf,Po,mRNA,protein])
 
         #Mesh
-        self.mesh = pyurdme.URDMEMesh.read_mesh("shared/mesh/cell_coarse.xml")
+        self.mesh = pyurdme.URDMEMesh.read_mesh("mesh/cell.msh")
         #Domains markers
         nucleus = [2]
         cytoplasm = [1]
@@ -227,7 +227,7 @@ def g2(result):
     
     return mapped
 
-if __name__ == "__name__":
+if __name__ == "__main__":
     model = hes1(model_name="hes1")
     result = model.run(report_level=1)
     mapped = g2(result)

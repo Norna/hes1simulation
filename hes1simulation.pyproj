@@ -25,6 +25,16 @@
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="mesh\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="mesh\cell.geo" />
+    <Content Include="mesh\cell.msh" />
+    <Content Include="mesh\cell.xml" />
+    <Content Include="mesh\cell_facet_region.xml" />
+    <Content Include="mesh\cell_physical_region.xml" />
+  </ItemGroup>
   <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
 </Project>
