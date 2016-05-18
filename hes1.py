@@ -245,7 +245,8 @@ if __name__ == "__main__":
     else:
         k1_e = 1e9
         k2_e = 0.1
-
+        
+    os.chdir("/hes1simulation")
     model = hes1(model_name="hes1",k1_e=k1_e,k2_e=k2_e)
     result = model.run(report_level=0)
     mapped = g2(result)
