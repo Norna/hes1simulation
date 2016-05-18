@@ -29,3 +29,5 @@ MF_PASSWORD = os.environ.get("WEHA_API_PASSWORD")
 INSTALLED_SERVICES = (
     'hes1wrapper.Hes1Wrapper',
 )
+
+NO_THREADING = False
