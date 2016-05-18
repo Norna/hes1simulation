@@ -21,7 +21,16 @@
     <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="hes1wrapper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="hes1.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="manage.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="settings.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

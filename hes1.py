@@ -1,8 +1,11 @@
+#!/usr/bin/python
+
 import os.path
 import pyurdme
 import dolfin
 import numpy
 import scipy
+import sys
 
 class Nucleus(dolfin.SubDomain):
     def inside(self,x,on_boundary):
@@ -232,10 +235,13 @@ def g2(result):
     return mapped
 
 if __name__ == "__main__":
-    model = hes1(model_name="hes1")
+
+    # assume that the first and the second arguments are k1 and k2
+
+    k1_e = float(sys.argv[1])
+    k2_e = float(sys.argv[2])
+
+
+    model = hes1(model_name="hes1",k1_e=k1_e,k2_e=k2_e)
     result = model.run(report_level=1)
     mapped = g2(result)
-
-    print(mapped)
-    print(type(mapped))
-
