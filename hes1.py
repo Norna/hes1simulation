@@ -6,6 +6,7 @@ import dolfin
 import numpy
 import scipy
 import sys
+import json
 
 class Nucleus(dolfin.SubDomain):
     def inside(self,x,on_boundary):
@@ -25,8 +26,8 @@ class hes1(pyurdme.URDMEModel):
         protein = pyurdme.Species(name="protein",diffusion_constant=6.e-1,dimension=3)
         self.add_species([Pf,Po,mRNA,protein])
 
-        #Mesh
-        self.mesh = pyurdme.URDMEMesh.read_mesh("mesh/cell.msh")
+        #mesh in xml
+        self.mesh = pyurdme.URDMEMesh.read_mesh("mesh/cell.xml")
         #Domains markers
         nucleus = [2]
         cytoplasm = [1]
@@ -238,10 +239,14 @@ if __name__ == "__main__":
 
     # assume that the first and the second arguments are k1 and k2
 
-    k1_e = float(sys.argv[1])
-    k2_e = float(sys.argv[2])
-
+    if len(sys.argv) == 3:
+        k1_e = float(sys.argv[1])
+        k2_e = float(sys.argv[2])
+    else:
+        k1_e = 1e9
+        k2_e = 0.1
 
     model = hes1(model_name="hes1",k1_e=k1_e,k2_e=k2_e)
-    result = model.run(report_level=1)
+    result = model.run(report_level=0)
     mapped = g2(result)
+    print ("result:%s" % json.dumps(mapped))

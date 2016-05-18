@@ -2,13 +2,15 @@ import os
 
 HEALTH_INTEVAL_TIME = 60
 
-HOST=os.environ["WEHA_APP_HOST"]
+HOST= "0.0.0.0"
+#os.environ["WEHA_APP_HOST"]
 
-PORT= os.environ["WEHA_APP_PORT"]
+PORT= "5000"
+#os.environ["WEHA_APP_PORT"]
 
-MANAGER_ADDRESS = os.environ["WEHA_API_HOST"]
+MANAGER_ADDRESS = os.environ.get("WEHA_API_HOST")
 
-MANAGER_PORT = os.environ["WEHA_API_PORT"]
+MANAGER_PORT = os.environ.get("WEHA_API_PORT")
 
 DJANGO_SERVER_PATH = ''
 
@@ -18,11 +20,11 @@ APP_NAME = 'sample'
 
 HEALTH_PATH = 'health/report/'
 
-IGNORE_API = False
+IGNORE_API = True
 
-MF_USERNAME = os.environ["WEHA_API_USERNAME"]
+MF_USERNAME = os.environ.get("WEHA_API_USERNAME")
 
-MF_PASSWORD = os.environ["WEHA_API_PASSWORD"]
+MF_PASSWORD = os.environ.get("WEHA_API_PASSWORD")
 
 INSTALLED_SERVICES = (
     'hes1wrapper.Hes1Wrapper',

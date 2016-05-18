@@ -24,7 +24,7 @@ class Hes1Wrapper (ServiceBase):
 
     def execute(self):
 
-        host = "%s:%s" % (str(self.x), socket.gethostbyname(socket.gethostname()))
+        host = "%s" % (socket.gethostbyname(socket.gethostname()))
         output = ""
         try:
             retcode,output,error = _execute("%s %s %s %s" % ("/usr/bin/python","hes1.py",str(self.k1_e),str(self.k2_e)))
